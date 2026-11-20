@@ -2,13 +2,12 @@ package common;
 
 import java.util.HashMap;
 
-/*
-* 근육 및 신체부위에 대한 정보 및 도구를 모아두는 class
-* 객체 선언 없이도 쓸 수 있도록 할 것을 권장
-*
-* */
-
+/**
+ * 근육 및 신체 부위에 대한 상수와 매핑 정보를 제공하는 유틸리티 클래스입니다.
+ * 객체 생성 없이 정적 필드와 도구를 사용할 수 있도록 설계되었습니다.
+ */
 public class Muscle {
+    /** 지원하는 전체 근육 이름 목록 */
     public static final String[] MUSCLES = {
             "대흉근", "소흉근", "전거근",
             "광배근", "승모근", "능형근", "척추기립근",
@@ -18,11 +17,25 @@ public class Muscle {
             "대퇴사두근", "햄스트링", "둔근", "하퇴근"
     };
 
+    /** 지원하는 전체 신체 부위 이름 목록 */
     public static final String[] BODYPARTS = {
             "가슴", "등", "어깨", "팔", "코어", "복부", "하체", "둔부"
     };
 
+    /** 근육명을 해당 신체 부위명으로 매핑하는 맵 */
     public static final HashMap<String, String> MUSCLE_TO_BODY = createMuscleMap();
+
+    /**
+     * 인스턴스 생성을 방지하기 위한 private 생성자입니다.
+     */
+    private Muscle() {
+    }
+
+    /**
+     * 근육명과 신체 부위명을 연결한 초기 매핑 테이블을 생성합니다.
+     *
+     * @return 근육명(key)을 신체 부위명(value)으로 매핑한 HashMap
+     */
     private static HashMap<String, String> createMuscleMap() {
         HashMap<String, String> map = new HashMap<>();
         // 가슴
@@ -64,5 +77,4 @@ public class Muscle {
 
         return map;
     }
-
 }
